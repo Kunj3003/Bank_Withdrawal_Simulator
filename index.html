@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Educational bank withdrawal simulator demonstrating JavaScript exception handling.">
+  <title>Bank Withdrawal Simulator | Web Development Mini Project</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="brand"><span class="brand-icon" aria-hidden="true">₹</span><div><strong>Bank Withdrawal Simulator</strong><small>Web Development Mini Project</small></div></div>
+      <span class="demo-pill">● Educational Demo</span>
+    </header>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">SIMULATED BANKING EXPERIENCE</p>
+        <h1>Withdraw securely.<br><span>Learn exception handling.</span></h1>
+        <p>Practice JavaScript input validation, custom errors, and real-time updates in a simulated bank account. No real money is involved.</p>
+      </section>
+      <div class="dashboard">
+        <section class="balance-card" aria-label="Account details">
+          <div class="balance-top"><span>DEMO SAVINGS ACCOUNT</span><span class="status-dot">Active</span></div>
+          <p class="balance-label">Available Balance</p>
+          <div class="balance-amount" id="balance" aria-live="polite">₹25,000.00</div>
+          <div class="account-bottom"><span>Account Holder <strong>Demo User</strong></span><span>Account No. <strong>XXXX 1024</strong></span></div>
+        </section>
+        <section class="withdraw-card" aria-labelledby="withdraw-title">
+          <div class="section-heading"><div><h2 id="withdraw-title">Make a Withdrawal</h2><p>Enter an amount and simulate the transaction.</p></div><span class="heading-icon" aria-hidden="true">↗</span></div>
+          <form id="withdraw-form" novalidate>
+            <label for="amount">Withdrawal amount (₹)</label>
+            <div class="input-wrap"><span>₹</span><input type="number" id="amount" name="amount" placeholder="Enter amount" min="1" step="0.01" required aria-describedby="amount-help"></div>
+            <p class="field-help" id="amount-help">Single withdrawal limit: ₹10,000 · Minimum: ₹1</p>
+            <div class="quick-label">QUICK AMOUNTS</div>
+            <div class="quick-buttons"><button type="button" class="quick" data-amount="500">₹500</button><button type="button" class="quick" data-amount="1000">₹1,000</button><button type="button" class="quick" data-amount="2000">₹2,000</button><button type="button" class="quick" data-amount="5000">₹5,000</button></div>
+            <button class="primary-button" type="submit">Withdraw Amount <span aria-hidden="true">→</span></button>
+          </form>
+          <div id="feedback" role="status" aria-live="polite" class="feedback hidden"></div>
+        </section>
+      </div>
+      <section class="history-card" aria-labelledby="history-title">
+        <div class="history-header"><div><h2 id="history-title">Transaction History</h2><p>Withdrawal attempts from this demo session</p></div><button id="reset" type="button" class="reset-button">↺ Reset Demo</button></div>
+        <div class="table-scroll"><table><thead><tr><th>Time</th><th>Transaction</th><th>Amount</th><th>Status</th></tr></thead><tbody id="transactions"><tr id="empty-history"><td colspan="4" class="empty-state">No transactions yet. Try a withdrawal above.</td></tr></tbody></table></div>
+      </section>
+      <section class="info-section" aria-labelledby="learning-title"><h2 id="learning-title">What this project demonstrates</h2><div class="info-grid"><article><span class="info-icon">01</span><h3>Input validation</h3><p>Check missing, invalid, negative, decimal, and excessive withdrawal amounts.</p></article><article><span class="info-icon">02</span><h3>Custom exceptions</h3><p>Throw meaningful JavaScript errors for insufficient balance and transaction limits.</p></article><article><span class="info-icon">03</span><h3>DOM manipulation</h3><p>Update balances, feedback messages, and transaction history without refreshing the page.</p></article></div></section>
+    </main>
+    <footer>For academic demonstration only · HTML · CSS · JavaScript · No real banking connection</footer>
+  </div>
+</body>
+</html>
